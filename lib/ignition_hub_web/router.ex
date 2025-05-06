@@ -18,6 +18,9 @@ defmodule IgnitionHubWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+    live "/signup", SignupLive
+    get "/login", PageController, :login
+    post "/login", PageController, :handle_login
   end
 
   # Other scopes may use custom stacks.
