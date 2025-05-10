@@ -5,15 +5,12 @@ defmodule IgnitionHub.Repo.Migrations.CreateCars do
     create table(:cars) do
       add :make, :string
       add :model, :string
-      add :year, :date
+      add :year, :string
       add :engine_type, :string
       add :engine_size, :string
       add :transmission, :string
       add :price, :string
       add :pic_one, :string
-      add :pic_two, :string
-      add :pic_three, :string
-      add :pic_four, :string
       add :client_id, references(:clients, column: :id, on_delete: :nothing)
       timestamps(type: :utc_datetime)
     end

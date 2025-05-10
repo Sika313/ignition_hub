@@ -10,11 +10,8 @@ defmodule IgnitionHub.CARS.Car do
     field :model, :string
     field :price, :string
     field :transmission, :string
-    field :year, :date
+    field :year, :string
     field :pic_one, :string
-    field :pic_two, :string
-    field :pic_three, :string
-    field :pic_four, :string
 
     timestamps(type: :utc_datetime)
   end
@@ -22,7 +19,7 @@ defmodule IgnitionHub.CARS.Car do
   @doc false
   def changeset(car, attrs) do
     car
-    |> cast(attrs, [:make, :model, :year, :engine_type, :engine_size, :transmission, :price, :client_id, :pic_one, :pic_two, :pic_three, :pic_four])
-    |> validate_required([:make, :model, :year, :engine_type, :engine_size, :transmission, :price, :client_id, :pic_one, :pic_two, :pic_three, :pic_four])
+    |> cast(attrs, [:make, :model, :year, :engine_type, :engine_size, :transmission, :price, :client_id, :pic_one])
+    |> validate_required([:make, :model, :year, :engine_type, :engine_size, :transmission, :price, :client_id, :pic_one])
   end
 end

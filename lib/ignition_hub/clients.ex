@@ -12,6 +12,20 @@ defmodule IgnitionHub.CLIENTS do
   @doc """
     USER DEFINED FUNCTIONS
   """
+  def find_by_token(token) do
+    IO.inspect(token, label: "HIT--->")
+    case Repo.get_by(Client, token: token) do
+      nil -> {:error}
+      result -> {:ok, result}
+    end
+  end
+
+
+
+
+  @doc """
+    USER DEFINED FUNCTIONS
+  """
   def find_by_phone_and_password(params) do
     case Repo.get_by(Client, [phone: params["phone"], password: params["password"]]) do
       nil -> {:error}

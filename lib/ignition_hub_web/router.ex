@@ -17,10 +17,11 @@ defmodule IgnitionHubWeb.Router do
   scope "/", IgnitionHubWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
+    get "/", PageController, :home 
     live "/signup", SignupLive
     get "/login", PageController, :login
     post "/login", PageController, :handle_login
+    get "/add_car", ClientController, :add_car
   end
 
   # Other scopes may use custom stacks.

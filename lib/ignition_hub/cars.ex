@@ -9,6 +9,14 @@ defmodule IgnitionHub.CARS do
   alias IgnitionHub.CARS.Car
 
   @doc """
+    USER-DEFINED FUNCTIONS
+  """
+  def get_cars_by_client_id(id) do
+    query = from c in Car, where: c.client_id == ^id
+    Repo.all(query)
+  end
+
+  @doc """
   Returns the list of cars.
 
   ## Examples
@@ -17,8 +25,7 @@ defmodule IgnitionHub.CARS do
       [%Car{}, ...]
 
   """
-  def list_cars do
-    Repo.all(Car)
+  def list_cars do Repo.all(Car)
   end
 
   @doc """
