@@ -3,11 +3,24 @@ defmodule IgnitionHubWeb.PageController do
   import Phoenix.LiveView.Controller
   alias IgnitionHub.USERS
   alias IgnitionHub.CLIENTS
-
+  alias IgnitionHub.CARS
   def home(conn, _params) do
     # The home page is often custom made,
     # so skip the default app layout.
     render(conn, :home, layout: false)
+  end
+
+  def search(conn, params) do
+    IO.inspect(params, label: "PARAMS--->")
+   cars = case CARS.search_car_by_name(params["search"]) do
+    [] -> []
+
+    results -> for result <- results do Map.from_struct(result) end
+   end 
+    conn = conn
+    |> assign(:cars, cars)
+    IO.inspect(cars, label: "CARS--->")
+    render(conn, :search)
   end
 
   

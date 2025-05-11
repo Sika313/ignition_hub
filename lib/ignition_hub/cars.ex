@@ -16,6 +16,12 @@ defmodule IgnitionHub.CARS do
     Repo.all(query)
   end
 
+  def search_car_by_name(name) do
+    IO.inspect(name, label: "NAME--->")
+    query= from c in Car, where: c.make == ^name
+    Repo.all(query)
+  end
+
   @doc """
   Returns the list of cars.
 

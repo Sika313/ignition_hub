@@ -18,6 +18,7 @@ defmodule IgnitionHubWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home 
+    post "/search", PageController, :search
     live "/signup", SignupLive
     get "/login", PageController, :login
     post "/login", PageController, :handle_login
