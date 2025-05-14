@@ -3,19 +3,9 @@
 <div class="bg-[url('/images/landing_page2.jpg')] bg-cover h-screen pt-4 flex flex-col">
   <div class="flex flex-row justify-around">
     <h1 class="orbitron text-red-500 text-4xl font-extrabold">Ignition Hub</h1>
-    <form method="post" action="/search" class="flex flex-row items-center">
-      <input type="text" id="search" name="search" placeholder="Search" />
-      <input type="hidden" name="_csrf_token" id="csrf" value={Plug.CSRFProtection.get_csrf_token() } />
-
-      <button type="submit" class="bg-white py-2 px-2 rounded-r-md">
-       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-       </svg>
-      </button>
-    </form>
-
+      
     <nav class="flex flex-row w-[40vw] justify-around text-white">
-     <span><a href="#">Vehicles</a></span> 
+     <span><a href="/search">Vehicles</a></span> 
      <span><a href="#">Driving Schools</a></span> 
      <span><a href="#">About</a></span> 
      <span><a href="#">Contact</a></span> 
