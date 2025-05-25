@@ -2,7 +2,6 @@ defmodule IgnitionHubWeb.ViewCarsComponent do
   use IgnitionHubWeb, :live_component
 
   def update(assigns, socket) do
-    IO.inspect(assigns, label: "ASSIGNS---")
     socket = socket
     |> assign(:cars, assigns.cars)
     {:ok, socket}
