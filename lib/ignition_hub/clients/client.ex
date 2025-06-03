@@ -3,6 +3,7 @@ defmodule IgnitionHub.CLIENTS.Client do
   import Ecto.Changeset
 
   schema "clients" do
+    belongs_to :tier, Tier, foreign_key: :tier_id, type: :id
     field :fname, :string
     field :gender, :string
     field :lname, :string
@@ -16,7 +17,7 @@ defmodule IgnitionHub.CLIENTS.Client do
   @doc false
   def changeset(client, attrs) do
     client
-    |> cast(attrs, [:fname, :lname, :gender, :phone, :password, :token])
-    |> validate_required([:fname, :lname, :gender, :phone, :password, :token])
+    |> cast(attrs, [:fname, :lname, :gender, :phone, :password, :token, :tier_id])
+    |> validate_required([:fname, :lname, :gender, :phone, :password, :token, :tier_id])
   end
 end

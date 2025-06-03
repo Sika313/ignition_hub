@@ -19,6 +19,11 @@ defmodule IgnitionHub.USERS do
     end
   end
 
+  def find_by_token(token) do
+    query = from u in User, where: u.token == ^token
+    Repo.all(query)
+  end
+
 
 
 

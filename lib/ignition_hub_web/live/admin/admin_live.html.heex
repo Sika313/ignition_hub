@@ -1,0 +1,33 @@
+<nav class="flex flex-row justify-around items-center py-4 bg-blue-900 text-white">
+<p><%= @user.fname %></p>
+
+<div class="flex flex-col">
+<h1>Tier management</h1>
+<select id="tier" name="tier">
+  <option phx-click={show_modal("add_tier")} value="add_tier">Add tier</option>
+  <option phx-click="view_tiers" value="view_tiers">View tiers</option>
+</select>
+</div>
+
+</nav>
+
+<div class="flex flex-col">
+
+<%= if @view_tiers do %>
+<.live_component module={ViewTiersComponent} id="view_tiers" />
+<% end %>
+
+</div>
+
+<.modal id="add_tier">
+  <form phx-submit="handle_add_tier" class="flex flex-col">
+  <label for="name">Name</label>
+  <input type="text" id="name" name="name" placeholder="Name" />
+  <label for="description">Description</label>
+  <input type="text" id="description" name="description" placeholder="Description" />
+  <label for="max_cars">Max cars</label>
+  <input type="text" id="max_cars" name="max_cars" placeholder="Max cars" />
+  <button type="submit" phx-click={hide_modal("add_tier")} class="text-white bg-blue-500 px-4 py-2">Add</button>
+
+  </form>
+</.modal>

@@ -44,10 +44,11 @@ defmodule IgnitionHubWeb.PageController do
         |> redirect(to: "/login")
     end
     {:ok, result} ->
-      conn
-      |> put_flash(:info, "Admin found.")
-      |> redirect("/")
-
+        r = Map.from_struct(result)
+        conn 
+        |> put_flash(:info, "Logged in successfully.")
+        |> put_session(:token, r.token)
+        |> live_render(IgnitionHubWeb.AdminLive)
     end
   end
 

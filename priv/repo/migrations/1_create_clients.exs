@@ -10,6 +10,8 @@ defmodule IgnitionHub.Repo.Migrations.CreateClients do
       add :password, :string
       add :token, :string
 
+      add :tier_id, references(:tiers, column: :id, on_delete: :nothing)
+
       timestamps(type: :utc_datetime)
     end
   end
